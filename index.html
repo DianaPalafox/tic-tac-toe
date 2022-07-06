@@ -10,20 +10,25 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
+    <div class="button-start-game">
+        <button id="start-game">Start Game</button>
+    </div>
     <div class="container">
-        <form>
-            <h2>Add the players</h2>
-            <div class="players">
-                <label for="name">Player One:</label>
-                <input type="text" id="name">
-                <label for="name">Player Two:</label>
-                <input type="text" id="name">
-            </div>
-            <div class="button-form">
-                <button id="submit" type="submit">Submit</button> 
+        <form id='form'>
+            <span id="close">&times;</span>
+            <div class="form">
+                <h2>Add the players</h2>
+                <div class="players">
+                    <label for="name">Player One (X):</label>
+                    <input type="text" id="name" required>
+                    <label for="name">Player Two (O):</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="button-form">
+                    <button id="submit" type="button">Submit</button> 
+                </div>
             </div>
         </form>
     </div> 
-    
 </body>
 </html>

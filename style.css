@@ -8,6 +8,7 @@
 
 body {
     background-color: #991b1b;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body > h1 {
@@ -45,13 +46,15 @@ form {
     position: absolute;
     z-index: 1;
     background-color: #fecaca;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 33vw;
     height: 37vh;
     border-radius: 10px;
 }
 
 .form > h2 {
-    font-family: 'Montserrat', sans-serif;
     color: #991b1b;;
     text-align: center;
     margin-bottom: 15px;
@@ -62,7 +65,6 @@ form {
     display: flex;
     margin-left: 40px;
     flex-flow: column nowrap;
-    font-family: 'Montserrat', sans-serif;
     font-weight: bolder; 
 }
 
@@ -104,6 +106,11 @@ input[type="text"] {
     font-size: larger;
     font-family: 'Montserrat', sans-serif;
     display: block; 
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .button-start-game {
@@ -115,4 +122,27 @@ input[type="text"] {
 
 #start-game:hover {
     background-color: #fecaca;
+}
+
+.players-container {
+    text-align: center;
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.boardgame{
+    display: grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows:repeat(3,1fr);
+    width: 35vw;
+    height: 35vh;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.content {
+    border: 1px solid;
+    aspect-ratio:1/1;
+    background-color: white;
 }

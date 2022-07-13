@@ -1,16 +1,16 @@
-const showForm = (() => {
+const Form = (() => {
     const btnNewGame = document.querySelector('#start-game')
     btnNewGame.addEventListener('click', () => {
         document.querySelector('#form').style.display ='block';
     });
- })();
-  
- const closeForm = (() => {
+
     const closeSpan = document.querySelector('#close')
     closeSpan.addEventListener('click', () => {
         document.querySelector('#form').style.display = 'none';
     });
  })();
+  
+
   
  const submit = (() => {
     const submitBtn = document.querySelector('#submit')
@@ -40,7 +40,6 @@ const showForm = (() => {
         infoContainer.textContent = playerTwo.getName();
   
         playersContainer.appendChild(infoContainer);   
-
     }
     
     function deletePlayersTurn() {
@@ -53,7 +52,6 @@ const showForm = (() => {
         playersTurnOne, playersTurnTwo, deletePlayersTurn
     }
 
-
  })();
   
   
@@ -65,69 +63,39 @@ const showForm = (() => {
         const boardgameContainer = document.querySelector('.boardgame')
         const content = document.createElement('div');
         content.classList.add('content');
-        content.style.border = "thin solid black";
         content.setAttribute("data-index", `${i}`);
+        content.style.border = "thin solid black";
        
-        const boxContainer = document.createElement('div');
-        boxContainer.classList.add('box-container');
-  
-        content.appendChild(boxContainer);
+        //const boxContainer = document.createElement('div');
+        //boxContainer.classList.add('box-container');
+        
+        //content.appendChild(boxContainer);
         boardgameContainer.appendChild(content);
     }
-    });
-   
+    });  
+  
+ })();
+ 
+
+const appendToDOM = (() => {
     let turn = 0;
     document.addEventListener('click', function(e) {    
         if (e.target.classList.contains('content')) {
             submit.deletePlayersTurn(); 
-            turn++;
-            console.log(turn)
+            turn++; 
             if(turn % 2 === 0) {
-                const boxContainer = document.querySelector('.box-container');
-                boxContainer.textContent = 'X'
+                e.target.textContent = 'O'; 
                 submit.playersTurnOne();
             }
             else {
-                const boxContainer = document.querySelector('.box-container');
-                boxContainer.textContent = 'O'
+                e.target.textContent = 'X'; 
                 submit.playersTurnTwo();
             }
   
         }
     })
-  
- })();
-  
-  
- /*const Players = (() => {
-  
-    function playerOne() {
-        const playersContainer = document.querySelector('.players-container')
-        const infoContainer = document.createElement('div');
-        infoContainer.classList.add('info-container');
-  
-        const playerOne = Player(document.querySelector('.player-one').value);
-        infoContainer.textContent = playerOne.getName();
-  
-        playersContainer.appendChild(infoContainer);
-    }
-  
-    function playerTwo() {
-        const playersContainer = document.querySelector('.players-container')
-        const infoContainer = document.createElement('div');
-        infoContainer.classList.add('info-container');
-  
-        const playerTwo = Player(document.querySelector('.player-two').value);
-        infoContainer.textContent = playerTwo.getName();
-  
-        playersContainer.appendChild(infoContainer);
-    }
-    return {
-        playerOne, playerTwo
-    }
-  
- })();*/
-  
+    
+})(); 
   
 const Player = (name) => {
     const getName = () => `${name}` + "'s turn";

@@ -80,10 +80,10 @@ const Form = (() => {
 const appendToDOM = (() => {
     let turn = 0;
     document.addEventListener('click', function(e) {    
-        if (e.target.classList.contains('content')) {
+        if (e.target.classList.contains('content') && e.target.textContent === '') {
             submit.deletePlayersTurn(); 
             turn++; 
-            if(turn % 2 === 0) {
+            if(turn % 2 === 0 ) {
                 e.target.textContent = 'O'; 
                 submit.playersTurnOne();
             }
@@ -91,7 +91,6 @@ const appendToDOM = (() => {
                 e.target.textContent = 'X'; 
                 submit.playersTurnTwo();
             }
-  
         }
     })
     

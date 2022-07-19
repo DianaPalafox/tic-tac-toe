@@ -124,6 +124,25 @@ input[type="text"] {
     background-color: #fecaca;
 }
 
+#new-game {
+    box-shadow: 3px 3px #c25454;
+    cursor: pointer;  
+    width: 100px;
+    background-color: #fca5a5;
+    height: 40px;
+    border-radius: 5px;
+    border-style: none; 
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    display: none; 
+}
+
+.button-new-game {
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+}
+
 .players-container {
     text-align: center;
     font-size: 30px;

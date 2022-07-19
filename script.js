@@ -3,6 +3,7 @@
 let arr = ['', '', '', '', '', '', '', '', '']
 let turn = 0; 
 let gameOver = false; 
+
 const Form = (() => {
     const btnNewGame = document.querySelector('#start-game')
     btnNewGame.addEventListener('click', () => {
@@ -108,7 +109,7 @@ const Form = (() => {
         return gameOver = false;   
     }
     }
-    return { renderBoard, deleteBoard }
+    return { deleteBoard }
  })();
  
 
@@ -122,14 +123,12 @@ const appendToDOM = (() => {
                 e.target.textContent = 'O'; 
                 players.playersTurnOne();  
                 arr[`${i}`] = 'O'
-                console.log(arr)
                 checkForWin();            
             }
             else {
                 e.target.textContent = 'X'; 
                 players.playersTurnTwo();
                 arr[`${i}`] = 'X'
-                console.log(arr)
                 checkForWin(); 
                 
             }
@@ -178,8 +177,13 @@ const appendToDOM = (() => {
             displayController();
             return players.winnerTwo();
         }
-
+        if(!arr.includes('')) {
+            gameOver = true; 
+            displayController();
+            return players.tie();
+        }
     }  
+
     
     function displayController() {
         const newGameBtn = document.querySelector('#new-game')

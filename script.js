@@ -89,10 +89,6 @@ const Form = (() => {
             content.classList.add('content');
             content.style.border = "thin solid black";
             content.setAttribute('data-index', `${i}`)
-            //const boxContainer = document.createElement('div');
-            //boxContainer.classList.add('box-container');
-            
-            //content.appendChild(boxContainer);
             boardgameContainer.appendChild(content);
         }
     }
@@ -115,18 +111,18 @@ const Form = (() => {
 
 const appendToDOM = (() => {
     document.addEventListener('click', function(e) { 
-        let i = e.target.dataset.index  
+        let i = e.target.dataset.index 
         if (e.target.classList.contains('content') && e.target.textContent === '' && gameOver === false) {
             players.deletePlayersTurn(); 
             turn++; 
             if(turn % 2 === 0 ) {
-                e.target.textContent = 'O'; 
+                e.target.innerHTML = "<img src='images/letter-o.png'/>"
                 players.playersTurnOne();  
                 arr[`${i}`] = 'O'
                 checkForWin();            
             }
             else {
-                e.target.textContent = 'X'; 
+                e.target.innerHTML = "<img src='images/letter-x.png'/>"; 
                 players.playersTurnTwo();
                 arr[`${i}`] = 'X'
                 checkForWin(); 
